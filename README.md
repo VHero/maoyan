@@ -19,4 +19,6 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-# maoyan
+# 猫眼电影
+
+本项目模仿猫眼电影，使用的是豆瓣的API
