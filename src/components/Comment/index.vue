@@ -4,15 +4,15 @@
       <div class="rating">
         <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
       </div>
-      <time>03-03</time>
+      <time>{{comment.created_at}}</time>
     </div>
     <div class="comment-content">
-      <p>{{comment.summary}}</p>
+      <p>{{comment.content}}</p>
     </div>
     <div class="comment-footer">
       <img :src="comment.author.avatar" :alt="comment.author.alt">
       <p class="name">{{comment.author.name}}</p>
-      <p class="comment-like"><i class="fa fa-thumbs-o-up"></i><span>1999</span></p>
+      <p class="comment-like"><i class="fa fa-thumbs-o-up"></i><span>{{comment.useful_count}}</span></p>
     </div>
   </div>
 </template>
@@ -90,6 +90,7 @@ export default {
 }
 .comment-wrap li{
   border-bottom: solid #e5e5e5 1px;
+  width: 100%;
 }
 .comment-more{
   display: block;

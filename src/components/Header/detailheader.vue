@@ -42,6 +42,7 @@ header .back{
   color: #fff;
   position: absolute;
   z-index: 2;
+      font-size: 0.6rem;
 }
 header .detail-title{
   text-align: center;

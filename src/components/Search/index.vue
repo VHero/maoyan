@@ -4,7 +4,7 @@
     <div class="search">
       <div class="search-wrap">
         <label for="">
-          <input type="text" class="inputer" v-model="query">
+          <input type="text" class="inputer" v-model="query" @keyup.enter="search">
 
             <i class="fa fa-search" @click="search"></i>
 
@@ -15,7 +15,6 @@
             <li v-for="(item,index) in hotSearch" @click="hotMovie(item.id)">
               {{item.name}}
             </li>
-
           </ul>
         </div>
       </div>
@@ -103,7 +102,7 @@ export default {
 .hot-movie li{
   display: block;
   width: 30%;
-  padding: 0 1%;
+  padding: 0.1rem 1%;
   font-size: 0.4rem;
   background-color: #fff;
   border-radius: 10px;

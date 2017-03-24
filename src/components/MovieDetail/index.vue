@@ -9,11 +9,11 @@
       <div class="movie-comment">
         <h3 class="comment-title">短评</h3>
         <ul class="comment-wrap">
-          <li v-for="(comment,index) in movieDetail.popular_reviews">
+          <li v-for="(comment,index) in movieDetail.popular_comments">
             <comment v-bind:comment="comment"></comment>
           </li>
         </ul>
-        <a href="" class="comment-more">查看全部短评<span>19999</span>条短评</a>
+        <a href="" class="comment-more">查看全部短评<span>{{movieDetail.popular_comments.length}}</span>条短评</a>
       </div>
       <icp></icp>
     </div>

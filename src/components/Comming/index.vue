@@ -1,25 +1,10 @@
 <template lang="html">
 <div>
   <v-header></v-header>
-  <div class="movie-wrap" v-if="!loadding">
-    <div class="movie-content">
-      <ul class="movie-list">
-        <li @click="moreMsg(item.id)" v-for="(item,id) in theaters">
-          <img :src="item.images.small" :alt="item.title">
-          <div class="description">
-            <p class="title">{{item.title}}</p>
-            <p class="author">导演:<span>{{item.directors[0].name}}</span></p>
-            <p class="actor">演员:<span>{{item.casts[0].name}}, {{item.casts[1].name}}</span></p>
-          </div>
-          <div class="score">
-            <p class="average">{{item.rating.average}}</p>
-
-          </div>
-        </li>
-      </ul>
-    </div>
+  <div class="movie-list" v-if="!loadding">
+    <moviecontent v-for="(item,index) in theaters.subjects" :key="theaters.id" :directors="item.directors[0].name"  :casts="item.casts" :image="item.images.large" :title="item.title" :average="item.rating.average" :id="item.id"></moviecontent>
   </div>
-  <div  v-if="loadding">
+  <div v-if="loadding">
      <loadding></loadding>
   </div>
 
@@ -29,17 +14,45 @@
 <script>
 import vHeader from "../Header"
 import loadding from '../Loadding'
+import moviecontent from '../MovieContent/moviecontent.vue'
 export default {
   name: 'comming',
   data () {
     return {
       loadding:true,
-      theaters:[]
+      theaters: {
+        total: '',
+        subjects: [{
+          rating: {
+            max: '',
+            average: ''
+          },
+          genres: [],
+          title: '',
+          year: '',
+          images: {
+            small: '',
+            large: '',
+            medium: ''
+          },
+          directors: [{
+            name: ''
+          }],
+          casts: [{
+            name: '',
+            id: ''
+          }],
+          collect_count: '',
+          alt: '',
+          id: ''
+        }]
+      },
     }
   },
   components:{
     'v-header':vHeader,
-    'loadding':loadding
+    'loadding':loadding,
+    'moviecontent':moviecontent
   },
   mounted: function () {
 
@@ -56,7 +69,7 @@ export default {
     this.$http.jsonp('https://api.douban.com/v2/movie/coming_soon')
         .then(function (data) {
           console.log(data);
-          this.theaters=data.body.subjects;
+          this.theaters=data.body;
           this.loadding=false;
         })
         .catch(function (response) {
