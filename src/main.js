@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import vueResource from 'vue-resource'
-
+import 'font-awesome/css/font-awesome.min.css'
+import 'normalize.css'
 Vue.config.productionTip = false
 Vue.use(vueResource)
 /* eslint-disable no-new */

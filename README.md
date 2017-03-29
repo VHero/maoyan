@@ -22,3 +22,5 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 # 猫眼电影
 
 本项目模仿猫眼电影，使用的是豆瓣的API
+
+请将本项目放在网站的根目录出，如果想要将本项目放在子目录，请在`config\index.js`中改变build中的`assetsPublicPath: '/'`,例如:`assetsPublicPath: '/maoyan/'`
