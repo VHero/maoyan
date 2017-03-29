@@ -5,6 +5,9 @@ import Comming from '@/components/Comming'
 import MovieDetail from '@/components/MovieDetail'
 import Search from '@/components/Search'
 import SearchResult from '@/components/Search/searchresult'
+import SmallComment from '@/components/Comment/smallComment'
+import Cast from '@/components/Casts'
+import CastItem from '@/components/Casts/castitem'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +36,21 @@ export default new Router({
       path: '/searchresult',
       name: 'SearchResult',
       component: SearchResult
+    },
+    {
+      path: '/smallComment/:id',
+      name: 'smallComment',
+      component: SmallComment
+    },
+    {
+      path: '/cast/:id',
+      name: 'cast',
+      component: Cast
+    },
+    {
+      path: '/castitem/:id',
+      name: 'castitem',
+      component: CastItem
     }
   ]
 })

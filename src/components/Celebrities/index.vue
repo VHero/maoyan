@@ -8,16 +8,23 @@
           </a>
         </li>
       </ul>
-      <a href="" class="all-celebrities">全体演职人员 <i class="fa fa-angle-right"></i></a>
+      <a href="javascript:;" class="all-celebrities" @click="showCast(castsid)">全体演职人员 <i class="fa fa-angle-right"></i></a>
   </div>
 </template>
 
 <script>
 export default {
-  props:['casts'],
+  props:['casts','castsid'],
   data:function(){
     return {
-      // casts:casts
+    }
+  },
+  methods:{
+    showCast(id){
+      const path="/cast/"+id;
+      this.$router.push({
+        path:path
+      })
     }
   }
 }
@@ -69,6 +76,7 @@ export default {
   font-size: 0.4rem;
   color: #666;
   padding: 0.2rem 0.2rem;
+  text-decoration: none;
 }
 .all-celebrities i{
   color: #aaa;

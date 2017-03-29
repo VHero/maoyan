@@ -5,7 +5,7 @@
       <moviecontent v-bind:movieDetail="movieDetail" v-bind:moviebg="moviebg"></moviecontent>
 
       <moviesummary v-bind:summary="movieDetail.summary" :reviews_count="movieDetail.reviews_count" :wish_count="movieDetail.wish_count"></moviesummary>
-      <celebrities v-bind:casts="movieDetail.casts"></celebrities>
+      <celebrities v-bind:casts="movieDetail.casts" :castsid="movieDetail.id"></celebrities>
       <div class="movie-comment">
         <h3 class="comment-title">短评</h3>
         <ul class="comment-wrap">
@@ -13,7 +13,7 @@
             <comment v-bind:comment="comment"></comment>
           </li>
         </ul>
-        <a href="" class="comment-more">查看全部短评<span>{{movieDetail.popular_comments.length}}</span>条短评</a>
+        <a href="javascript:;" class="comment-more" @click="smallComment(movieDetail.id)">查看全部短评<span>{{movieDetail.comments_count}}</span>条短评</a>
       </div>
       <icp></icp>
     </div>
@@ -161,6 +161,14 @@ export default {
         }
       )
   },
+  methods:{
+    smallComment(id){
+      const path="/smallComment/"+id
+      this.$router.push({
+        path:path
+      })
+    }
+  }
 
 }
 </script>
