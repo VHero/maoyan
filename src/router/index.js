@@ -1,13 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
-import Comming from '@/components/Comming'
-import MovieDetail from '@/components/MovieDetail'
-import Search from '@/components/Search'
-import SearchResult from '@/components/Search/searchresult'
-import SmallComment from '@/components/Comment/smallComment'
-import Cast from '@/components/Casts'
-import CastItem from '@/components/Casts/castitem'
 Vue.use(Router)
 
 export default new Router({
@@ -15,42 +7,42 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
-      component: Index
+      component: resolve => require(['@/components/Index'], resolve)
     },
     {
         path: '/comming',
         name: 'Comming',
-        component: Comming
+        component: resolve => require(['@/components/Comming'], resolve)
     },
     {
       path: '/movie/:id',
       name: 'MovieDetail',
-      component: MovieDetail
+      component: resolve => require(['@/components/MovieDetail'], resolve)
     },
     {
       path: '/search',
       name: 'Search',
-      component: Search
+      component: resolve => require(['@/components/Search'], resolve)
     },
     {
       path: '/searchresult',
       name: 'SearchResult',
-      component: SearchResult
+      component: resolve => require(['@/components/Search/SearchResult'], resolve)
     },
     {
       path: '/smallComment/:id',
       name: 'smallComment',
-      component: SmallComment
+      component: resolve => require(['@/components/Comment/smallComment'], resolve)
     },
     {
       path: '/cast/:id',
       name: 'cast',
-      component: Cast
+      component: resolve => require(['@/components/Casts'], resolve)
     },
     {
       path: '/castitem/:id',
       name: 'castitem',
-      component: CastItem
+      component: resolve => require(['@/components/Casts/CastItem'], resolve)
     }
   ]
 })
